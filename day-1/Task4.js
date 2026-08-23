@@ -1,0 +1,2 @@
+document.getElementById("mainTitle").innerText = "Practice Time";
+

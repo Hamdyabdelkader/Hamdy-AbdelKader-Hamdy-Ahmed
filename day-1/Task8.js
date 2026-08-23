@@ -1,0 +1,1 @@
+var color = window.prompt("your favorite color");
