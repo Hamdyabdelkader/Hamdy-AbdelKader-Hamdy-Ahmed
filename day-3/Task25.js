@@ -5,8 +5,3 @@ for (var i = 1; i <= 4; i++) {
     }
     console.log(x);
 }
-
-// طريقة تانية من غير  Nested loop
-// for (var i = 1; i <= 4; i++) {
-//     console.log("* ".repeat(i));  
-// }
