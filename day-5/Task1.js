@@ -1,8 +1,8 @@
 var products = [
-{ id: 1, name: "Rtx 5060", price: 22000, category: "Electronics", quantity: 4 },
-{ id: 2, name: "Mouse", price: 1100, category: "Accessories", quantity: 25 },
-{ id: 3, name: "Rtx 5070 Ti", price: 42000, category: "Electronics", quantity: 5 },
-{ id: 4, name: "KeyBoard", price: 2000, category: "Electronics", quantity: 3 }
+ { id: 1, name: "Rtx 5060", price: 22000, category: "Electronics", quantity: 4 },
+ { id: 2, name: "Mouse", price: 1100, category: "Accessories", quantity: 25 },
+ { id: 3, name: "Rtx 5070 Ti", price: 42000, category: "Electronics", quantity: 5 },
+ { id: 4, name: "KeyBoard", price: 2000, category: "Electronics", quantity: 3 }
 ];
 // Create---------------------------------------------------------------------------------
 
@@ -10,32 +10,32 @@ function createProduct(name, price, category, quantity) {
 name = name.trim();
 category = category.trim();
 
-if (name == "") {
-console.log("Error!! name is required");
-} 
-else if (category == "") {
-console.log("Error: category is required");
-}
-else if (isNaN(price) || price < 0) {
-console.log("Error!! invalid price");
-}
- else if (isNaN(quantity) || quantity < 0) {
-console.log("Error:!! invalid quantity");
-}
-else {
-var exists = products.some(function (product) {
-return product.name.toLowerCase() == name.toLowerCase();
-});
+    if (name == "") {
+        console.log("Error!! name is required");
+    } 
+    else if (category == "") {
+        console.log("Error: category is required");
+    }
+    else if (isNaN(price) || price < 0) {
+        console.log("Error!! invalid price");
+    }
+    else if (isNaN(quantity) || quantity < 0) {
+        console.log("Error:!! invalid quantity");
+    }      
+    else {
+        var exists = products.some(function (product) {
+        return product.name.toLowerCase() == name.toLowerCase();
+    });
 
-if (exists) {
-console.log("Error!! product already exists");
-} 
-else {
-var newId = products[products.length - 1].id + 1;
-var newProduct = {id: newId,name: name,price: +price,category: category,quantity: +quantity};
-products.push(newProduct);
-return newProduct;
-}}}
+    if (exists) {
+        console.log("Error!! product already exists");
+    } 
+    else {
+        var newId = products[products.length - 1].id + 1;
+        var newProduct = {id: newId,name: name,price: +price,category: category,quantity: +quantity};
+        products.push(newProduct);
+        return newProduct;
+    }}}
 
 
 //read all--------------------------------------------------------
@@ -51,44 +51,44 @@ function printProducts(list) {
 //read one-------------------------------------------------
 
 function getProductById(id) {
-var product = products.find(function (product) {
-return product.id == +id;
-});
-if (product) {
-return product;
-} 
-else {
-console.log("Error: product not found");
-}}
+    var product = products.find(function (product) {
+        return product.id == +id;
+    });
+    if (product) {
+        return product;
+    } 
+    else {
+        console.log("Error: product not found");
+    }}
 
 //update------------------------------------------------
 
 function updateProduct(id, name, price, category, quantity) {
-var index = products.findIndex(function (product) {
-return product.id == +id;
-});
-if (index == -1) {
-console.log("Error!! product not found");
-} 
-else if (name.trim() == "") {
-console.log("Error: name is required");
-}
-else if (category.trim() == "") {
-console.log("Error!! category is required");
-} 
-else if (isNaN(price) || price < 0) {
-console.log("Error!! invalid price");
-} 
-else if (isNaN(quantity) || quantity < 0) {
-console.log("Error!! invalid quantity");
-} 
-else {
-products[index].name = name.trim();
-products[index].price = +price;
-products[index].category = category.trim();
-products[index].quantity = +quantity;
-return products[index];
-}}
+    var index = products.findIndex(function (product) {
+        return product.id == +id;
+    });
+    if (index == -1) {
+        console.log("Error!! product not found");
+    } 
+    else if (name.trim() == "") {
+        console.log("Error: name is required");
+    }
+    else if (category.trim() == "") {
+        console.log("Error!! category is required");
+    } 
+    else if (isNaN(price) || price < 0) {
+        console.log("Error!! invalid price");
+    } 
+    else if (isNaN(quantity) || quantity < 0) {
+        console.log("Error!! invalid quantity");
+    } 
+    else {
+        products[index].name = name.trim();
+        products[index].price = +price;
+        products[index].category = category.trim();
+        products[index].quantity = +quantity;
+        return products[index];
+    }}
 
 //delete---------------------------------------------------------
 function deleteProduct(id) {
@@ -97,15 +97,15 @@ var index = products.findIndex(function (product) {
 });
 
 if (index == -1) {
-console.log("Error!! not found");
+    console.log("Error!! not found");
 } 
 else {
-var answer = prompt("Are you sure you want to delete " +products[index].name +"? Type yes or no");
-if (answer.toLowerCase() == "yes") {
-return products.splice(index, 1);
-} 
-else {
-console.log("Delete cancelled");
+    var answer = prompt("Are you sure you want to delete " +products[index].name +"? Type yes or no");
+    if (answer.toLowerCase() == "yes") {
+    return products.splice(index, 1);
+    } 
+    else {
+    console.log("Delete cancelled");
 }}}
 //filter&search---------------------------------------
 
@@ -143,36 +143,36 @@ else {
 switch (choice.trim()) {
 
 case "1":
-var name = prompt("Enter product name:");
-var price = parseInt(prompt("Enter price:"));
-var category = prompt("Enter category:");
-var quantity = parseInt(prompt("Enter quantity:"));
+    var name = prompt("Enter product name:");
+    var price = parseInt(prompt("Enter price:"));
+    var category = prompt("Enter category:");
+    var quantity = parseInt(prompt("Enter quantity:"));
 
 if (name == null ||category == null ||isNaN(price) ||isNaN(quantity)) {
-alert("Invalid input");
+    alert("Invalid input");
 } 
 else {
-var newProduct = createProduct(name,price,category,quantity);
-if (newProduct) {
-console.log(newProduct);
-alert("Product added successfully");
+    var newProduct = createProduct(name,price,category,quantity);
+    if (newProduct) {
+    console.log(newProduct);
+    alert("Product added successfully");
 }}
 break;
 
 case "2":
-printProducts(getAllProducts());
+    printProducts(getAllProducts());
 break;
 
 case "3":
-var id = parseInt(prompt("Enter product ID:"));
-if (isNaN(id)) {
-alert("Invalid ID");
-}
-else {
-var product = getProductById(id);
-if (product) {
-console.log(product);
-}}
+    var id = parseInt(prompt("Enter product ID:"));
+    if (isNaN(id)) {
+        alert("Invalid ID");
+    }
+    else {
+        var product = getProductById(id);
+    if (product) {
+        console.log(product);
+    }}
 break;
 
 case "4":
@@ -182,37 +182,38 @@ var newName = prompt("Enter new name:");
 var newPrice = parseFloat(prompt("Enter new price:"));
 var newCategory = prompt("Enter new category:");
 var newQuantity = parseInt(prompt("Enter new quantity:"));
+
 if (isNaN(newId) ||newName === null ||newCategory === null ||isNaN(newPrice) ||isNaN(newQuantity)) {
-alert("Invalid input");
+    alert("Invalid input");
 }
 else {
-var updatedProduct = updateProduct(newId,newName,newPrice,newCategory,newQuantity);
-if (updatedProduct) {
-console.log(updatedProduct);
-alert("Product updated successfully");
+    var updatedProduct = updateProduct(newId,newName,newPrice,newCategory,newQuantity);
+    if (updatedProduct) {
+    console.log(updatedProduct);
+    alert("Product updated successfully");
 }}
- break;
+break;
 
 case "5":
 var deleteId = parseInt(prompt("Enter product ID:"));
 if (isNaN(deleteId)) {
-alert("Invalid ID");
+    alert("Invalid ID");
 }
 else {
-var deleted = deleteProduct(deleteId);
-if (deleted) {
-alert("Product deleted successfully");
+    var deleted = deleteProduct(deleteId);
+    if (deleted) {
+    alert("Product deleted successfully");
 }}
 break;
 
 case "6":
 var keyword = prompt("Enter name or category:");
 if (keyword == null) {
-alert("Search cancelled");
+    alert("Search cancelled");
 } 
 else {
-var filteredProducts =filterProducts(keyword);
-printProducts(filteredProducts);
+    var filteredProducts =filterProducts(keyword);
+    printProducts(filteredProducts);
 }
 break;
 
@@ -229,14 +230,14 @@ alert("Invalid choice");
 
 function addUnReapeatedProduct(name, price, category, quantity) {
 var exists = products.some(function (product) {
-return product.name.toLowerCase() == name.trim().toLowerCase();
+    return product.name.toLowerCase() == name.trim().toLowerCase();
 });
 
 if (exists) {
-console.log("Error: product already exists");
+    console.log("Error: product already exists");
 } 
 else {
-return createProduct(name, price, category, quantity);
+    return createProduct(name, price, category, quantity);
 }}
 
 //B2---------------------------------------------------------------
@@ -244,7 +245,7 @@ return createProduct(name, price, category, quantity);
 function sortByPrice(order = "asc") {
 return products.slice().toSorted(function (a, b) {
 if (order == "asc") {
-return a.price - b.price;
+    return a.price - b.price;
 } 
 else if (order == "desc"){
     return b.price - a.price;
@@ -257,32 +258,32 @@ else if (order == "desc"){
 function getStoreStats() {
 var totalProducts = products.length;
 var totalStock = products.reduce(function (sum, product) {
-return sum + product.quantity;
+    return sum + product.quantity;
 }, 0);
 
 var totalValue = products.reduce(function (sum, product) {
-return sum + product.price * product.quantity;
+    return sum + product.price * product.quantity;
 }, 0);
 
 var averagePrice = products.reduce(function (sum, product) {
-return sum + product.price;
+    return sum + product.price;
 }, 0) / products.length;
 
 var outOfStock = products.reduce(function (count, product) {
 if (product.quantity === 0) {
-return count + 1;
+    return count + 1;
 } 
 else {
-return count;
+    return count;
 }
 }, 0);
 
 return {
-totalProducts: totalProducts,
-totalStock: totalStock,
-totalValue: totalValue,
-averagePrice: averagePrice.toFixed(2),
-outOfStock: outOfStock
+    totalProducts: totalProducts,
+    totalStock: totalStock,
+    totalValue: totalValue,
+    averagePrice: averagePrice.toFixed(2),
+    outOfStock: outOfStock
 };
 }
 
@@ -291,29 +292,29 @@ outOfStock: outOfStock
 
 function groupByCategory() {
 return products.reduce(function (groups, product) {
-if (!groups[product.category]) {
-groups[product.category] = [];
-}
-groups[product.category].push(product);
-return groups;
+    if (!groups[product.category]) {
+        groups[product.category] = [];
+    }
+    groups[product.category].push(product);
+    return groups;
 }, {});
 }
 
 //B5----------------------------------------------
 
 function filterByPrice(min = 0, max = Infinity) {
-return products.filter(function (product) {
- return product.price >= min &&product.price <= max;
-});
+    return products.filter(function (product) {
+    return product.price >= min &&product.price <= max;
+    });
 }
 
 //B6---------------------------------------------------------
 
 const inStock = (list) =>list.filter(product => product.quantity > 0);
 function withAfterAction(fn, callback) {
-var result = fn();
-callback("Done");
-return result;
+    var result = fn();
+    callback("Done");
+    return result;
 }
 
 //B7---------------------------------------------------------
@@ -337,11 +338,10 @@ search: function (keyword) {return filterProducts(keyword);
 //B8--------------------------------------------------------------------------
 function addMany(...items) {
 items.forEach(function (item) {
-createProduct(item.name,item.price,item.category,item.quantity);
+    createProduct(item.name,item.price,item.category,item.quantity);
 });
 return products;
 }
 
 
 startApp();
-
