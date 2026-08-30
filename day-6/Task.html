@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTI Mini Store</title>
+</head>
+
+<body>
+
+    <h1 id="title">NTI Mini Store</h1>
+
+    <!-- Product Form -->
+
+    <form id="productForm">
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Product Name"
+        >
+
+        <br><br>
+
+        <input
+            type="text"
+            id="price"
+            inputmode="numeric"
+            placeholder="Price"
+        >
+
+        <br><br>
+
+        <input
+            type="text"
+            id="category"
+            placeholder="Category"
+        >
+
+        <br><br>
+
+        <input
+            type="text"
+            id="quantity"
+            inputmode="numeric"
+            placeholder="Quantity"
+        >
+
+        <br><br>
+
+        <button type="submit" id="addBtn">
+            Add
+        </button>
+
+        <button type="button" id="updateBtn">
+            Update
+        </button>
+
+    </form>
+
+
+    <br><br>
+
+
+    <!-- Search -->
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Search product..."
+    >
+
+
+    <select id="categoryFilter">
+
+        <option value="all">
+            All Categories
+        </option>
+
+        <option value="Electronics">
+            Electronics
+        </option>
+
+        <option value="Accessories">
+            Accessories
+        </option>
+
+    </select>
+
+
+    <br><br>
+
+
+    <!-- Products Table -->
+
+    <table border="1">
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="productsBody">
+
+        </tbody>
+
+    </table>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
